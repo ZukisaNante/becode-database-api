@@ -1,43 +1,30 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Notes_Database";
-//create db
-try {
-    $conn = new PDO("mysql:host={$servername}; dbname={$dbname}", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "CREATE DATABASE Notes_Database";
-    // use exec() because no results are returned
-    $conn->exec($sql);
-    echo "Database created successfully<br>";
-    }
-catch(PDOException $e)
-    {
-    echo $sql . "<br>" . $e->getMessage();
-    }
-//Create table
-// try {
-//     $conn = new PDO("mysql:host={$servername}; dbname={$dbname}", $username, $password);
-//     // set the PDO error mode to exception
-//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//     // $sql = "CREATE DATABASE Notes_Database";
-//     /*SQL Database*/
-//     $sql ="CREATE TABLE Notes_Table (
-//             id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//             Title VARCHAR(100) NOT NULL UNIQUE,
-//             Notes VARCHAR(max) NOT NULL,
-//             Author  VARCHAR(100) NOT NULL
-//             )";
-//     // use exec() because no results are returned
-//     $conn->exec($sql);
-//     echo "Table created successfully";
-//     }
-// catch(PDOException $e)
-//     {
-//     echo $sql . "<br>" . $e->getMessage();
-//     }
+$username = "admin";
+$password = "cVcJGaoFUTh6";
+$dbname = "notes_db";
 
-$conn = null;
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// sql to create table
+$sql = "CREATE TABLE MyGuests (
+id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(30) NOT NULL,
+notes VARCHAR(30) NOT NULL,
+author VARCHAR(50),
+reg_date TIMESTAMP
+)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Table MyGuests created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
+$conn->close();
 ?> 
