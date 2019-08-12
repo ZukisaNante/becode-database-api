@@ -1,6 +1,6 @@
 <?php
-    require_once ('config.php');
-    class notes {
+    require_once ('connect.php');
+    class notes{
         function select(){
             $db = new connect;
             $users = array();
