@@ -29,4 +29,5 @@
             <td colspan = "4" align = "center"> No Data Found </td>
         </tr>';
     }
+    echo $output; // send data to ajax request
 ?>
