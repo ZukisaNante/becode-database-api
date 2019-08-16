@@ -1,3 +1,3 @@
 # becode-database-api
 
-https://zukisanante.github.io/becode-database-api/notes_api/note.php
+https://zukisanante.github.io/becode-database-api/
