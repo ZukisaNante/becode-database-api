@@ -1,8 +1,4 @@
-<html>
-<head>
-  <title>JSON PHP</title>
-</head>
-<body>
+
 <?php
   /*********************************************************** 
   * Programmer: Zukisa NANTE                                 *
@@ -25,5 +21,4 @@
   mysqli_close($connection);
 ?>
   
-</body>
-</html>
+
